@@ -1,0 +1,9 @@
+category: Graphics Java
+requires: jamvm java-avalon-framework java-batik java-commons-io java-commons-logging java-xalan java-xerces2 java-xml-commons-external java-xmlgraphics-commons
+sdesc: "XSL-FO to PDF formatter"
+ldesc: "Apache FOP is the world's first print formatter driven by XSL 
+formatting objects. It is a Java application that reads a formatting 
+object tree conforming to the XSL 1.1 Recommendation and then turns it 
+into a PDF document, certain other output formats or allows you to 
+preview it directly on screen. Some parts of the XSL 1.1 specification 
+have also been implemented."

@@ -1,0 +1,17 @@
+JAVA_CLASSPATH="avalon-framework.jar:batik-all.jar:commons-io.jar:commons-logging.jar:log4j.jar:serializer.jar:servlet-api.jar:xalan.jar:xercesImpl.jar:xml-apis.jar:xml-apis-ext.jar:xmlgraphics-commons.jar"
+inherit ant
+
+DESCRIPTION="Apache XSL Formatting Objects Processor"
+HOMEPAGE="http://xmlgraphics.apache.org/fop/"
+SRC_URI="mirror://apache/xmlgraphics/fop/source/${P}-src.tar.gz"
+
+DISTCLEANFILES="lib/*.jar"
+
+ANT_BUILD_TARGETS="package"
+ANT_TEST_TARGETS="junit"
+
+src_install() {
+	cd ${B}
+	dojar build/fop*.jar
+	java_wrapper -Dfop.home=${JAVA_DIR} fop fop.jar
+}
