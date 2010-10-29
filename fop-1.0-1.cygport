@@ -7,11 +7,12 @@ SRC_URI="mirror://apache/xmlgraphics/fop/source/${P}-src.tar.gz"
 
 DISTCLEANFILES="lib/*.jar"
 
-ANT_BUILD_TARGETS="package"
+ANT_BUILD_ARGS="-Duser.hyph.dir=/usr/share/offo/hyph"
+ANT_BUILD_TARGETS="package transcoder-pkg"
 ANT_TEST_TARGETS="junit"
 
 src_install() {
 	cd ${B}
 	dojar build/fop*.jar
-	java_wrapper -Dfop.home=${JAVA_DIR} fop fop.jar
+	java_wrapper -Dfop.home=${JAVA_DIR} fop fop.jar:fop-hyph.jar:fop-sandbox.jar org.apache.fop.cli.Main
 }
